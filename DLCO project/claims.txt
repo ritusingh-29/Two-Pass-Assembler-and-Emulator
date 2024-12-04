@@ -1,0 +1,146 @@
+/*****************************************************************************
+TITLE: Claims																																
+AUTHOR: [Ritu Kumari Singh]
+ROLL NO:2301CS75
+Declaration of Authorship
+This text file, claims.txt, is part of the assignment for [CS2102],
+Department of Computer Science and Engineering, IIT Patna. 
+*****************************************************************************/
+
+Files Submitted:
+==================
+The submitted files include:
+1. asm.cpp - Contains the source code for the assembler.
+2. emu.cpp - Contains the source code for the emulator.
+3. claims.txt - This document, detailing the claims about the submission.
+4. Test cases - Output files from various test cases (test1 through test4, myBubbleSort, and two additional test case).
+
+Each source file includes my name and Roll No. at the start, with a declaration of authorship. The outputs from each test case, including successful runs and cases with errors, are attached to demonstrate functionality and correctness.
+
+Compilation and Execution Instructions:
+=========================================
+1. Two Pass Assembler(asm.cpp)
+   ------------------
+     Compilation:
+        * Run the following command for compilation:
+          g++ asm.cpp -o asm
+
+        * Ensure there are no compilation errors or warnings.
+
+     Execution:
+        * To execute the assembler, use:
+     
+         ./asm <input_filename>
+     
+         for example - if want to run test1.asm then execute - ./asm test1.asm
+
+   
+   * Output files are generated as follows:
+     * `<filename>.log` - Contains any errors or warnings encountered during assembly.
+     * `<filename>.lst` - Contains the listing output if no errors are present.
+     * `<filename>.o` - Contains the assembled machine code, output in binary format.
+
+2. Emulator(emu.cpp)
+   -------------------
+    Compilation:
+       * Run the following command:
+         g++ emu.cpp -o emu
+
+    Execution:
+       * to execute :
+         ./emu
+          Then enter the .o file name when prompted
+
+Assumptions:
+=============
+* Output files `listfile.lst` and `machinecode.o` are only generated if the code has no errors. In the presence of errors, only `logfile.log` is   created with detailed error information.
+* Mnemonic named “data” is always used at the end of assembly code.
+
+General Program Format and Structure:
+=======================================
+1. Assembler :
+   * The assembler is implemented as a two-pass assembler in assembler.cpp.
+   * Key features implemented include:
+     * Support for the full instruction set with correct mnemonics and expected operands.
+     * A table of instructions to map mnemonics to opcodes and operand types.
+     * Detection and reporting of errors for labels (missing or duplicate) with specific messages in `logfile.log`.
+     * Creation of three primary output files: 
+       - `logfile.log` for errors and warnings
+       - `listfile.lst` for detailed listing information
+       - `machinecode.o` for binary machine code
+     * Advanced listing file generation in `listfile.lst`, showing each instruction’s address, machine code, and assembly code.
+     * Implementation of the `SET` instruction for additional functionality.
+
+  -> Error and Warning Handling:
+   * The assembler handles errors in a detailed manner. For example:
+     * Undefined labels are reported with line numbers in `logfile.log`.
+     * Duplicate label declarations are identified and logged as errors.
+     * Incorrect operand formats are flagged, and unexpected operands for specific instructions generate warnings.
+
+2. Emulator:
+   * This  emulator successfully implements a complete instruction set architecture with 19 instructions (0-18)
+   * Detects and handles infinite loops by imposing a maximum instruction limit (2^24 instructions)
+   * Loads and executes binary program files
+   * Commands are 
+	   -trace  show instruction trace
+	   -read   show memory reads
+	   -write  show memory writes
+	   -before show memory dump before execution
+	   -after  show memory dump after execution
+	   -wipe   wipe written flags before execution
+	   -isa    display ISA
+   
+   -> MybubbleSort.o
+	   compiles successfully with all functionalities working as mentioned above
+
+Test Cases:
+=============
+The assembler has been tested with the following cases:
+(1)
+#Input: test1.asm
+#Output: 
+a. test1.lst 
+b. test1.log (without any error messages)
+c. test1.o
+
+(2)
+#Input: test2.asm
+#Output: 
+a. test2.log (with error messages in log file)
+
+(3)
+#Input:asm test3.asm
+#Output: 
+a. test3.lst 
+b. test3.log (without any error messages)
+c. test3.o
+
+(4)
+#Input: test4.asm
+#Output: 
+a. test4.lst 
+b. test4.log (without any error messages)
+c. test4.o
+
+(5)
+#Input: MybubbleSort.asm
+#Output: 
+a. MybubbleSort.lst 
+b. MybubbleSort.log (without any error messages)
+c. MybubbleSort.o
+
+Additional Tests:
+=================
+(6) 
+#Input: customtest1.asm
+#Output:
+a. customtest1.lst
+b. customtest1.log(without any error messages)
+c. customtest1.o
+
+(7)
+#Input: customtest2.asm
+#Output:
+a. customtest2.log(with error messages in log file)
+
+

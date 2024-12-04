@@ -1,0 +1,5 @@
+Line Number 1 ERROR: Unexpected operand
+Line Number 2 ERROR: Invalid Format
+Line Number 3 ERROR: Bogus Mnemonic
+Line Number 4 ERROR: Bogus Mnemonic
+Line Number 5 ERROR: No such label
